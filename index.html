@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regex Matcher App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background: #f7f7f7;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .result-box {
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Regex Matcher</h2>
+
+    <form method="POST">
+        <label>Enter Test String:</label>
+        <textarea name="test_string" rows="4">{{ test_string }}</textarea>
+
+        <label>Enter Regular Expression:</label>
+        <input type="text" name="regex_pattern" value="{{ regex_pattern }}">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if matches %}
+    <div class="result-box">
+        <h3>Matches:</h3>
+        <ul>
+            {% for m in matches %}
+                <li>{{ m }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
